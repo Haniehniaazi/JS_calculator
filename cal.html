@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>calculator</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 20%;
+            font-size: 20px;
+            background-color: MediumSeaGreen;
+        }
+        #res{
+            font-family: 'Courier';
+            font-size: larger;
+        }
+    </style>
+</head>
+
+<body>
+    <input id="n1" type="number" placeholder="first number">
+    <span id="sign">?</span>
+    <input id="n2" type="number" placeholder="second number">
+    <span>=</span>
+    <span id="res">result</span>
+
+    <br><br>
+
+    <button onclick="cal('+')">+</button>
+    <button onclick="cal('-')">-</button>
+    <button onclick="cal('/')">/</button>
+    <button onclick="cal('*')">*</button>
+
+    <p id="colorName"></p>
+
+    <script>
+
+
+        var a = document.getElementById('n1');
+        var b = document.getElementById('n2');
+
+        var result = document.getElementById('res');
+        var s = document.getElementById('sign');
+
+
+
+
+
+
+        function cal(operator) {
+
+            
+            if (o == '+'){
+                result.innerHTML = parseInt(a.value) + parseInt(b.value);
+            }
+
+            else if (o == '-'){
+                result.innerHTML = parseInt(a.value) - parseInt(b.value);
+            }
+
+            else if (o == '/'){
+                result.innerHTML = parseInt(a.value) / parseInt(b.value);
+            }
+
+            else if (o == '*'){
+                result.innerHTML = parseInt(a.value) * parseInt(b.value);
+            }
+            
+            s.innerHTML = o;
+            var x = color();
+
+            showColor(x);
+        }
+
+        
+        function color(){
+
+            if (result.innerHTML < 0)
+            {
+                result.style.color='red';
+                return 'red';
+            }
+            else if (result.innerHTML > 0 && result.innerHTML<= 100)
+            {
+                result.style.color='violet';
+                return 'violet';
+            } 
+
+            else{
+                result.style.color='yellow';  
+                return 'yellow'; 
+            }
+        }
+
+        function showColor(colorr){
+            document.getElementById("colorName").innerHTML= colorr;
+        }
+
+
+    </script>
+
+</body>
+
+</html>
